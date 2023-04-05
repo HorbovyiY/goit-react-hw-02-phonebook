@@ -17,8 +17,11 @@ export class App extends React.Component {
       name: name,
       number: number,
     }
+    const isNameInContacts = this.state.contacts.filter(item => item.name === name).length;
 
-    this.setState((prevState) => ({contacts: [contact, ...prevState.contacts]}))
+      (isNameInContacts) ?
+      alert("This name is already in contacts"):
+      this.setState((prevState) => ({ contacts: [contact, ...prevState.contacts] }))
   }
 
   toFilter = (text) => { 
@@ -38,8 +41,10 @@ export class App extends React.Component {
       }}
     >
       <h2>Phonebook</h2>  
-      <Form add={this.addContact}/>
-      <Filter text={this.state.filter} toFilter={this.toFilter} />
+        <Form add={this.addContact} />
+
+      <h2>Contacts</h2>
+        <Filter text={this.state.filter} toFilter={this.toFilter} />
         <Contacts contacts={this.state.contacts} filter={ this.state.filter} />
     </div>
   );

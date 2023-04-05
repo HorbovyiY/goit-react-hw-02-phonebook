@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { Form } from "./Form/Form";
 import { Contacts } from "./Contacts/Contacts";
 import { Filter } from "./Filter/Filter";
+import { Title } from "./App.styled";
 
 export class App extends React.Component {
   state = {
@@ -44,10 +45,10 @@ export class App extends React.Component {
         color: '#010101'
       }}
     >
-      <h2>Phonebook</h2>  
+      <Title>Phonebook</Title>  
         <Form add={this.addContact} />
 
-      <h2>Contacts</h2>
+      <Title>Contacts</Title>
         <Filter text={this.state.filter} toFilter={this.toFilter} />
         <Contacts contacts={this.state.contacts} filter={this.state.filter} del={ this.deleteContact} />
     </div>

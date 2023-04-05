@@ -1,4 +1,6 @@
-export const Contacts = ({contacts, filter, del}) => { 
+import { Item, DeleteContact } from "./Contacts.styled";
+
+export const Contacts = ({ contacts, filter, del }) => { 
     return (
         <ul>
             {(filter) ?
@@ -6,16 +8,16 @@ export const Contacts = ({contacts, filter, del}) => {
                     ({ name }) => name.toLowerCase().includes(filter.toLowerCase())
                 ).map(
                     ({ id, name, number }) =>
-                        <li key={id}>
+                        <Item key={id}>
                             {name}: {number}
-                            <button type="button" onClick={()=>{del(id)}}>Delete</button>
-                        </li>
+                            <DeleteContact type="button" onClick={()=>{del(id)}}>Delete</DeleteContact>
+                        </Item>
                 ):
                 contacts.map(({ id, name, number }) => 
-                    <li key={id}>
+                    <Item key={id}>
                         {name}: {number}
-                        <button type="button" onClick={()=>{del(id)}}>Delete</button>
-                    </li>
+                        <DeleteContact type="button" onClick={()=>{del(id)}}>Delete</DeleteContact>
+                    </Item>
                 )
             }
         </ul>

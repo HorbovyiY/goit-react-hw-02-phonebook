@@ -24,6 +24,10 @@ export class App extends React.Component {
       this.setState((prevState) => ({ contacts: [contact, ...prevState.contacts] }))
   }
 
+  deleteContact = (id) => { 
+    this.setState((prevState) => ({ contacts: prevState.contacts.filter(item => item.id !== id) }))
+  }
+
   toFilter = (text) => { 
     this.setState({filter: text})
   }
@@ -45,7 +49,7 @@ export class App extends React.Component {
 
       <h2>Contacts</h2>
         <Filter text={this.state.filter} toFilter={this.toFilter} />
-        <Contacts contacts={this.state.contacts} filter={ this.state.filter} />
+        <Contacts contacts={this.state.contacts} filter={this.state.filter} del={ this.deleteContact} />
     </div>
   );
   }

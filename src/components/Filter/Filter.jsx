@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import { Title, FilterWrapper } from "./Filter.styled";
 
 export const Filter = ({ text, toFilter }) => { 
@@ -11,4 +13,9 @@ export const Filter = ({ text, toFilter }) => {
             />
         </FilterWrapper>
     )
+}
+
+Filter.propTypes={ 
+    text: PropTypes.string.isRequired,
+    toFilter: PropTypes.func.isRequired,
 }

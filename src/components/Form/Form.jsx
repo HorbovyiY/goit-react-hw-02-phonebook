@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 import { ContactsForm, Name, AddContact } from "./Form.styled";
 
@@ -57,4 +58,8 @@ export class Form extends React.Component {
             </ContactsForm>)
         
     }
+}
+
+Form.propTypes = {
+    add: PropTypes.func.isRequired,
 }
